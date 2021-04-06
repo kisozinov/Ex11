@@ -23,5 +23,5 @@ TEST(train, test2) {
 TEST(train, test3) {
     Cage* cage = new Cage();
     cage->on();
-    EXPECT_EQ(true, cage.get());
+    EXPECT_EQ(true, cage->get());
 }
