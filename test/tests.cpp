@@ -4,36 +4,24 @@
 #include <string>
 #include "../include/train.h"
 
-TEST(Train, test1) {
-    Train tr;
-    unsigned was = tr.length();
-    tr.addCage(false);
-    unsigned now = tr.length();
-    unsigned expected = 1;
-    unsigned result = now - was;
-    EXPECT_EQ(expected, result);
+TEST(train, test1) {
+    Train train;
+    for (int i = 0; i < 100; ++i) {
+        train.addCage();
+    }
+    EXPECT_EQ(100, train.length());
 }
 
-TEST(Train, test2) {
-    Train tr;
-    for (size_t i = 0; i < 10; ++i) {
-        tr.addCage(true);
+TEST(train, test2) {
+    Train train;
+    for (int i = 0; i < 1; ++i) {
+        train.addCage();
     }
-    Cage* pointer = tr.getFirst();
-    for (size_t i = 0; i < 10; ++i) {
-        pointer = pointer->next;
-    }
-    Cage* expected = tr.getFirst();
-    Cage* result = pointer;
-    EXPECT_EQ(expected, result);
+    EXPECT_EQ(1, train.length());
 }
 
-TEST(Train, test3) {
-    Train tr;
-    unsigned expected = std::rand() % 1000;
-    for (size_t i = 0; i < expected; ++i) {
-        tr.addCage(true);
-    }
-    unsigned result = tr.length();
-    EXPECT_EQ(expected, result);
+TEST(train, test3) {
+    Cage* cage = new Cage();
+    cage->on();
+    EXPECT_EQ(true, carriage.get());
 }
