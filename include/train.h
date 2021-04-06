@@ -10,7 +10,7 @@
 class Cage {
     bool light;
  public:
-    Cage* next; 
+    Cage* next;
     Cage* prev;
     Cage() : light(false), next(nullptr), prev(nullptr) {}
     ~Cage();
@@ -23,7 +23,7 @@ class Cage {
 class Train {
  private:
     Cage* first;
-    Cage* last; 
+    Cage* last;
  public:
     Train() : first(nullptr), last(nullptr) {}
     void addCage(bool light);

@@ -7,7 +7,7 @@
 TEST(Train, test1) {
     Train tr;
     unsigned was = tr.length();
-    tr.addCage(0);
+    tr.addCage(false);
     unsigned now = tr.length();
     unsigned expected = 1;
     unsigned result = now - was;
@@ -17,7 +17,7 @@ TEST(Train, test1) {
 TEST(Train, test2) {
     Train tr;
     for (size_t i = 0; i < 10; ++i) {
-        tr.addCage(1);
+        tr.addCage(true);
     }
     Cage* pointer = tr.getFirst();
     for (size_t i = 0; i < 10; ++i) {
@@ -32,7 +32,7 @@ TEST(Train, test3) {
     Train tr;
     unsigned expected = std::rand() % 1000;
     for (size_t i = 0; i < expected; ++i) {
-        tr.addCage(0);
+        tr.addCage(true);
     }
     unsigned result = tr.length();
     EXPECT_EQ(expected, result);
